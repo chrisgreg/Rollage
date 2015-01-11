@@ -5,8 +5,8 @@ block content
   p Collage for /r/#{subreddit} - ( #{from} - #{sort} )
 
   div(class='loading-overlay')
-    p Generating collage for #{subreddit}
-    p Please wait
+    p Generating collage for /r/#{subreddit}
+    p Please wait...
     div(class='spinner')
       
 
@@ -15,5 +15,6 @@ block content
       img(src= link)
 
   foot
-    script.
-      $(window).load(function(){ $('.loading-overlay').hide(2000); $('.Collage').collagePlus({ 'effect' : 'effect-1'}); })
+      script.
+        $(window).load(function(){ $('.loading-overlay').hide(2000); $('.Collage').collagePlus({ 'effect' : 'effect-1'}); })
+  
