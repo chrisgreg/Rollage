@@ -6,11 +6,9 @@ var links = [];
 
 // Middleware to retrieve subreddit information
 router.use(function (req, res, next) {
-  console.log('Time:', Date.now());
   console.log('Building information for', req.body.subreddit);
   next();
 });
-
 
 /* GET subreddit listing. */
 router.get('/', function(req, res) {
@@ -26,7 +24,7 @@ router.use(function (req, res, next) {
 		var nsfw = req.body.nsfw;
  		// Get image links
  		links = get_image_links(data, gifs, nsfw);
- 			next();
+ 	    next();
 	}); 
 });
 
@@ -35,9 +33,6 @@ router.post('/', function(req, res) {
    res.render('subreddit', { subreddit: req.body.subreddit, images: links, from: req.body.from, sort: req.body.sort});
    links = [];
 });
-
-
-
 
 // TODO : Handle imgur albums
 function get_image_links(reddit_data, gifs, nsfw){

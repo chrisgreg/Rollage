@@ -11,10 +11,13 @@ block content
       
 
   div(class='Collage')
-    each link in images
-      img(src= link)
+    if locals.images  
+      each link in images
+        img(src= link)
+    else 
+      h1 Sorry - couldn't find any images there.
 
   foot
       script.
-        $(window).load(function(){ $('.loading-overlay').hide(2000); $('.Collage').collagePlus({ 'effect' : 'effect-1'}); })
+        $(window).load(function(){ $('.loading-overlay').hide(3000); $('.Collage').collagePlus({ 'effect' : 'effect-1'}); })
   
