@@ -33,7 +33,9 @@ router.post('/', function(req, res) {
 
 /* GET subreddit listing. */
 router.get('/', function(req, res) {
-  
+   res.writeHead(404, {'Content-Type': 'text/plain'});                    // <- redirect
+   res.write("Looked everywhere, but couldn't find that page at all!\n"); // <- content!
+   res.end();
 });
 
 // TODO : Handle imgur albums
