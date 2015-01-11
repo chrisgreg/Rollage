@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
 // Middleware to extract images
 router.use(function (req, res, next) {
 
-	reddit.r(req.body.subreddit.replace('/r/',''))[req.body.sort]().from(req.body.from).limit(100, function(err, data, res){	
+	reddit.r(req.body.subreddit.replace('/r/','').replace('/', ''))[req.body.sort]().from(req.body.from).limit(100, function(err, data, res){	
 		// POST variables
 		var gifs = req.body.gifs;
 		var nsfw = req.body.nsfw;
