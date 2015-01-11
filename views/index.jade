@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  h1(class='titles')= title
+  h2(class='titles')= description
+
+  
+  div
+  form(action='/subreddit',method='post')
+    div(data-role='fieldcontain', class="subreddit-box")
+        label(for='subreddit') Subreddit: 
+           input(id='subreddit',type='text' ,placeholder='/r/', name='subreddit')
+
+    label(for="gifs") Include gifs?  
+           input(id='gifs', type="checkbox", name="gifs", checked=(true===false ? "checked" : undefined))
+
+    label(for="nsfw") Include 18+?  
+           input(id='nsfw', type="checkbox", name="nsfw", checked=(true===false ? "checked" : undefined))
+
+    label(for="sort") Sort by?  
+          select(id='sort', name='sort')
+            option(value='hot') Hot
+            option(value='new') New
+            option(value='controversial') Controversial
+            option(value='top') Top
+
+    label(for="from") From?  
+          select(id='from', name='from')
+            option(value='all') All
+            option(value='year') Year
+            option(value='month') Month
+            option(value='week') Week
+            option(value='day') Day
+  div(class='subtext')
+    p Please wait for the page to render the collage - this may take minutes based on your internet connection.
+    p Thank you for your patience.
+
+  div(class='footer')
+    p Created by <a href="http://www.chrisgregori.co.uk">#{author}</a>
+
+

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h3(class='titles')= subreddit
+  p Collage for /r/#{subreddit} - ( #{from} - #{sort} )
+
+  div(class='loading-overlay')
+    p Generating collage for #{subreddit}
+    p Please wait
+    div(class='spinner')
+      
+
+  div(class='Collage')
+    each link in images
+      img(src= link)
+
+  foot
+    script.
+      $(window).load(function(){ $('.loading-overlay').hide(2000); $('.Collage').collagePlus({ 'effect' : 'effect-1'}); })
