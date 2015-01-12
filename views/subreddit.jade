@@ -5,19 +5,20 @@ block content
   p Collage for /r/#{subreddit} - ( #{from} - #{sort} )
 
   div(class='loading-overlay')
-    p Generating collage for /r/#{subreddit}
-    p Please wait...
+    h2 Generating collage for /r/#{subreddit}
+    h3 Please wait...
     div(class='spinner')
       
 
   div(class='Collage')
-    if locals.images  
+    if locals.images.length > 0  
       each link in images
-        img(src= link)
+        a(href= link.comments)
+          img(src= link.image)
     else 
       h1 Sorry - couldn't find any images there.
+      h2 Are you sure you got the subreddit right? 
 
   foot
-      script.
-        $(window).load(function(){ $('.loading-overlay').hide(3000); $('.Collage').collagePlus({ 'effect' : 'effect-1'}); })
-  
+    script.
+      $(window).load(function(){ $('.loading-overlay').hide(2000); $('.Collage').collagePlus({ 'effect' : 'effect-1'}); })

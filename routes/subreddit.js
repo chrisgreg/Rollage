@@ -1,6 +1,7 @@
 var express = require('express');
 var request = require('request');
 var reddit = require('redwrap');
+var filehandler = require('fs');
 var router = express.Router();
 var links = [];
 
@@ -10,7 +11,7 @@ router.use(function (req, res, next) {
   next();
 });
 
-/* GET subreddit listing. */
+/* GET subreddit listing. - Redirect you to */
 router.get('/', function(req, res) {
    res.redirect('/');
 });
@@ -23,6 +24,7 @@ router.use(function (req, res, next) {
 		var gifs = req.body.gifs;
 		var nsfw = req.body.nsfw;
 
+		// If there's an error in the data - stop (e.g. Forbidden subreddit)
 		if(data.hasOwnProperty('error')){
 			next();
 		} else {
@@ -46,6 +48,7 @@ function get_image_links(reddit_data, gifs, nsfw){
 
 	for (i = 1; i < children_data.length; ++i){
 		var link = children_data[i]['data']['url'];
+		var commentLink = "http://www.reddit.com" + children_data[i]['data']['permalink'];
 
 		// Check NSFW
 		if (nsfw != 'on' && children_data[i]['data']['over_18'] != false){
@@ -55,7 +58,10 @@ function get_image_links(reddit_data, gifs, nsfw){
 		// Check for imgur link
 		if (link.indexOf('imgur') > -1){
 			if (is_image(link, gifs)){
-				links.push(link);
+				links.push({
+					image: link,
+					comments: commentLink
+				});
 			}
 		}	
 	}

@@ -8,8 +8,9 @@ block content
   div
   form(action='/subreddit',method='post')
     div(data-role='fieldcontain', class="subreddit-box")
-        label(for='subreddit') Subreddit: 
-           input(id='subreddit',type='text' ,placeholder='/r/', name='subreddit')
+        label(for='subreddit') /r/ 
+           input(id='subreddit',type='text' ,placeholder='subreddit', name='subreddit')
+        input(type='submit',value='go', class='subreddit-submit button-warning dark')
 
     label(for="gifs") Include gifs?  
            input(id='gifs', type="checkbox", name="gifs", checked=(true===false ? "checked" : undefined))

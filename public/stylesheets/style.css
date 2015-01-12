@@ -21,6 +21,67 @@ label {
     font-size: 24px;
 }
 
+.subreddit-submit {
+  border: 0 none;
+border-radius: 2px 2px 2px 2px;
+color: #FFFFFF;
+cursor: pointer;
+display: inline-block;
+font-family: Arial,sans-serif;
+font-size: 12px;
+font-weight: bold;
+line-height: 20px;
+margin-bottom: 0;
+margin-top: 10px;
+padding: 7px 10px;
+text-transform: none;
+transition: all 0.3s ease 0s;
+-moz-transition: all 0.3s ease 0s;
+-webkit-transition: all 0.3s ease 0s;
+width: 3%;
+text-align: center;
+  &.red {
+    background: none repeat scroll 0 0 $red;
+    color: $white;
+    &:hover {
+      background: none repeat scroll 0 0 $light;
+      color: $white;
+    }
+  }
+  &.dark {
+    background: none repeat scroll 0 0 $dark;
+    color: $white;
+    &:hover {
+      background: none repeat scroll 0 0 $blue;
+      color: $white;
+    }
+  }
+  &.light {
+    background: none repeat scroll 0 0 $light;
+    color: $white;
+    &:hover {
+      background: none repeat scroll 0 0 $dark;
+      color: $white;
+    }
+  }
+  &.green {
+    background: none repeat scroll 0 0 $green;
+    color: $white;
+    &:hover {
+      background: none repeat scroll 0 0 $dark;
+      color: $white;
+    }
+  }
+  &.blue {
+    background: none repeat scroll 0 0 $blue;
+    color: $white;
+    &:hover {
+      background: none repeat scroll 0 0 $dark;
+      color: $white;
+    }
+  }
+}
+
 .subreddit-box > label > input {
 	background: transparent;
 border: 0;
