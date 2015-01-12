@@ -22,9 +22,14 @@ router.use(function (req, res, next) {
 		// POST variables
 		var gifs = req.body.gifs;
 		var nsfw = req.body.nsfw;
- 		// Get image links
- 		links = get_image_links(data, gifs, nsfw);
- 	    next();
+
+		if(data.hasOwnProperty('error')){
+			next();
+		} else {
+ 			// Get image links
+ 			links = get_image_links(data, gifs, nsfw);
+ 	    	next();
+ 		}
 	}); 
 });
 
