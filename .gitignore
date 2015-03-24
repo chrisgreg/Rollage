@@ -2,6 +2,9 @@
 logs
 *.log
 
+# Node Modules
+node_modules
+
 # Sensitive files
-donate.html
-google-tracking.html
+views/donate.html
+views/google-tracking.html
