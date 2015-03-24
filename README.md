@@ -18,3 +18,7 @@ Optional toggles for NSFW and GIFs (default to off)
   - Gracefully handle Jade not including donate.html and google-analytics.html
   - Handle /subreddit/<subreddit-name> GET handler
   
+License
+----
+
+MIT
