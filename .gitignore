@@ -6,5 +6,5 @@ logs
 node_modules
 
 # Sensitive files
-views/donate.html
-views/google-tracking.html
+donate.html
+google-tracking.html
