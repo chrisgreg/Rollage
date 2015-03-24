@@ -1,0 +1,7 @@
+# Logs
+logs
+*.log
+
+# Sensitive files
+donate.html
+google-tracking.html
